@@ -14,12 +14,12 @@ import sphinx.builders.html
 from docutils import nodes
 def setup(app):
     if hasattr(app, 'set_translator'):
-        app.set_translator('html', translator.BootstrapTranslator)
+       app.set_translator('html', translator.BootstrapTranslator)
     else:
-        if getattr(app.config, 'html_translator_class', None):
-            app.warn("Overriding the explicitly set  html_translator_class setting",
-                     location="odoo extension")
-        app.config.html_translator_class = 'odoo.translator.BootstrapTranslator'
+       if getattr(app.config, 'html_translator_class', None):
+           app.warn("Overriding the explicitly set  html_translator_class setting",
+                    location="odoo extension")
+       app.config.html_translator_class = 'odoo.translator.BootstrapTranslator'
 
     switcher.setup(app)
     app.add_config_value('odoo_cover_default', None, 'env')
